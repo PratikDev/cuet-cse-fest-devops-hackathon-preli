@@ -1,19 +1,15 @@
-# Build stage
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --production
+FROM node:18.20-alpine
 
-# Production stage
-FROM node:18-alpine
 WORKDIR /app
+
 ENV NODE_ENV=production
 
 COPY package*.json ./
 RUN npm ci --production
 
-COPY . .
+COPY --chown=node:node . .
 
 EXPOSE 5921
 
+USER node
 CMD ["npm", "start"]

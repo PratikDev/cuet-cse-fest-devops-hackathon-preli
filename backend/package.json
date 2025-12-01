@@ -4,7 +4,7 @@
   "description": "MERN ecommerce backend (Express + Mongoose)",
   "main": "dist/index.js",
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist",
+    "build": "bun build src/index.ts --outdir dist --target bun",
     "start": "bun dist/index.js",
     "dev": "bun --watch src/index.ts",
     "type-check": "bunx tsc --noEmit"
